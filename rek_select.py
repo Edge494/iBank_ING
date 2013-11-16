@@ -1,4 +1,7 @@
 __author__ = 'Edmond van der Plas'
+__date__ = '16-11-2013'
+__version__ = '0,1'
+
 
 import pandas as pd
 

@@ -1,6 +1,6 @@
 __author__ = 'Edmond van der Plas'
 __date__ = '16-11-2013'
-__version__ = '0.2'
+__version__ = '0.2.1'
 
 import pandas as pd
 
@@ -20,14 +20,10 @@ for i in range (0, len(df)):
     df.ix[i,'Bedrag'] = df.ix[i,'Bedrag'].replace( ',', '.')
 df['Bedrag'] =  df['Bedrag'].astype(float)
 
-#Nodig voor berekening hieronder
-df['C'] = df.afbij.apply(
-               lambda x: (1 if x == 'Bij' else 1))
-
 #Berekening maken of bedrag positief of negatief is
-df['Bedrag2'] = df.apply(lambda row: (row['Bedrag']*row['C']
+df['Bedrag2'] = df.apply(lambda row: (row['Bedrag']
                                              if row['afbij']=='Bij'
-                                            else -row['Bedrag']*row['C']), axis=1)
+                                            else -row['Bedrag']), axis=1)
 
 #Kolommen selecteren voor output
 df2 = df[['Datum','Omschrijving', 'Bedrag2','Tegenrekening','Mededelingen']]

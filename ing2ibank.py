@@ -29,6 +29,6 @@ df['Bedrag2'] = df.apply(lambda row: (row['Bedrag']
 df2 = df[['Datum','Omschrijving', 'Bedrag2','Tegenrekening','Mededelingen']]
 
 #Datastructuur naar csv schrijven
-df2.to_csv('test_result.csv', sep=',', na_rep='0', dtype=int)
+df2.to_csv('transacties_ING_ibank.csv', sep=',', na_rep='0', dtype=int)
 
 
